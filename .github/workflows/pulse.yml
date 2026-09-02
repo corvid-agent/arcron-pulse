@@ -1,0 +1,24 @@
+name: pulse
+on:
+  schedule:
+    # 8:41-18:41 America/Denver in September (UTC-6)
+    - cron: "41 14-23 * * 1-5"
+    - cron: "41 0 * * 2-6"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Unsigned TestNet sample
+        run: python3 scripts/probe.py
+      - name: Commit history if it moved
+        run: |
+          git config user.name corvid-bot
+          git config user.email bot@corvidlabs.xyz
+          git add docs/history.json docs/live.json docs/pulse.sqlite
+          git diff --cached --quiet && echo no change && exit 0
+          git commit -m "Refresh TestNet pulse sample"
+          git push
