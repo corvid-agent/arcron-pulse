@@ -1,8 +1,8 @@
 {
-  "round": 67383295,
+  "round": 67400984,
   "keeper": 769891898,
   "genesis": "testnet-v1.0",
-  "t": "2026-09-17T05:17:14Z",
+  "t": "2026-09-17T18:31:23Z",
   "global_state_keys": [
     "ZnJvemVu",
     "bmV4dF91cGtlZXBfaWQ="
@@ -15,5 +15,5 @@
   "skipped": 1,
   "unfunded": 13,
   "on_schedule": 20,
-  "escrow_micro": 30840698
+  "escrow_micro": 29558518
 }
